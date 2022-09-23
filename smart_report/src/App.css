@@ -1,0 +1,95 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+body{
+  flex:1;
+  padding: 20px
+}
+#app {
+  font-weight: Normal;
+}
+h2 {
+  text-align: center;
+}
+.no-data {
+  padding: 1rem;
+  color: rgb(85, 5, 5);
+}
+.tabs {
+  padding: 20px 40px;
+}
+.tab-button {
+  padding: 16px 20px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background: #f0f0f0;
+  margin-bottom: -1px;
+  margin-right: -1px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.tab-button:hover {
+  background: #e0e0e0;
+}
+.tab-button.active {
+  background: black;
+  /* border: 1px solid black; */
+  color: white
+}
+.raws-container {
+  display: flex;
+}
+.sidebar ul {
+  padding-inline-start: 30px;
+}
+.sidebar {
+  max-width: 40vw;
+  margin: 0;
+  padding: 0px 10px 0 0;
+  list-style-type: none;
+  border-right: 1px solid #ccc;
+  background-color: #F5F5F5;
+}
+.sidebar li {
+  padding: 3px 0 2px 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #F5F5F5;
+}   
+.sidebar li:hover {
+background: #eee;
+}
+.sidebar li.selected {
+  background: lightblue;
+}
+.selected-raw {
+  padding-left: 50px;
+}
+.selected-raw pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+
+}
+.selected-item > :first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+.images-container {
+  display: flexbox;
+}
