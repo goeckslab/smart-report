@@ -40,4 +40,18 @@ export const data = {
       "label": "Learning Curves Label Loss",
     },
   ],
+  htmls: [
+    {
+      "file": "data/ml_vis01.html",
+      "label": "Vis plot 1",
+    },
+    {
+      "file": "data/ml_vis02.html",
+      "label": "Vis plot 2",
+    },
+    {
+      "file": "data/training_statistics.json",
+      "label": "Training Statistics",
+    },
+  ]
 }
