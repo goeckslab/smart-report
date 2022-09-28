@@ -1,0 +1,142 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+}
+
+header {
+    background-color: #eee;
+    color: #666;
+    padding: 10px;
+    margin-bottom: 2em;
+}
+
+header h1 {
+    font-size: 1em;
+    font-weight: normal;
+    margin: 0;
+}
+
+main {
+    margin: 0 auto;
+    width: 70%;
+    display: inline-block;
+}
+
+section h1 {
+    color: #777;
+    font-weight: 400;
+    margin-bottom: 2em;
+    font-size: 1.3em;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+section h2 {
+    font-size: 1.1em;
+}
+
+caption {
+    caption-side: bottom;
+    text-align: left;
+    font-size: .9em;
+    margin-top: 1em;
+}
+
+#metadata-row {
+    display: flex;
+    flex-direction: row;
+}
+
+#history-section {
+    flex-grow: 1;
+}
+
+#background-section {
+    flex-grow: 2;
+}
+
+.row {
+    margin-bottom: 3em;
+}
+
+.signature-row {
+    display: flex;
+}
+
+.column {
+    flex: 33.33%;
+    padding: 10px;
+}
+
+.regulator-row {
+    display: flex;
+}
+
+.regulator-drugs, .regulator-viz {
+    padding: 0 20px;
+}
+
+.regulator-viz img {
+    max-width: 500px;
+    display: block;
+}
+
+.regulator-drugs {
+    border-left: 1px solid #eee
+}
+
+#pathway-cancernetwork {
+    height: 400px;
+    margin: 0 auto;
+    display: block;
+}
+
+#cnvkit-heatmap, #pathway-image{
+    height: 500px;
+    margin: 0 auto;
+    display: block;
+}
+
+#hrd-image, #stemness-image, #eurydice-image {
+    height: 300px;
+    margin: 0 auto;
+    display: block;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    margin-bottom: 35px;
+}
+
+th {
+    font-weight: normal;
+    background-color: #eee;
+    padding: 5px;
+    color: #666;
+}
+
+td {
+    padding: 10px 5px;
+}
+
+tr:first-child td {
+    padding-top: 20px
+}
+
+tr {
+    page-break-inside: avoid
+}
+
+footer {
+    background-color: #eee;
+    text-align: center;
+    padding: 2px 0;
+    color: #666;
+    font-size: .8em;
+}

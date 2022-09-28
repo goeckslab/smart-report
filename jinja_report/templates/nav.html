@@ -1,0 +1,35 @@
+{# #######################
+  nav.html
+##########################
+
+The side navigation for the report.
+
+#}
+
+<div class="side-nav-wrapper">
+  <div class="side-nav">
+    {% if inputs.get("title") is not none %}
+      <h1 class="side-nav-title"><a href="#">{{ inputs.get("title") }}</a></h1>
+    {% endif %}
+    <p class="mqc_loading_warning">Loading report..</p>
+
+    {% if inputs.get("image")  %}    
+    <ul class="mqc-nav collapse navbar-collapse">
+      <li>
+        <a href="#all_images" class="nav-l1">All images</a>
+      </li>
+      <ul>
+        {% for im in inputs.get("image") %}
+        <li>
+          <a href={{ "#"+im["id"] }} class="nav-l2">{{ im["label"]|striptags }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      
+      
+    </ul>
+    {% endif %}
+  </div>
+  <!-- Nav Width Toggle Button -->
+  <div id="side-nav-handle"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></div>
+</div>

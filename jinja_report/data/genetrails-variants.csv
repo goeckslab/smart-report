@@ -1,0 +1,6 @@
+gene,cdna,protein,classification,wes_vaf,tcga_frequency,rna_vaf,expression
+FGFR3,c.114_127&gt;GA,P39_43delinsT,ND,Not Covered,0%,ND,<img src="data/FGFR3_expression_XXX.png" height=75 width=125></img>
+NF1,c.1391C&gt;T,P464L,Somatic,17%,0%,15.1%,<img src="data/NF1_expression_XXX.png" height=75 width=125></img>
+ROS1,c.5682A&gt;C,E1894D,ND,Not Called,0%,ND,<img src="data/ROS1_expression_XXX.png" height=75 width=125></img>
+GATA3,c.1220_1221insG,P409fs,Somatic,32%,.48%,3.4%,<img src="data/GATA3_expression_XXX.png" height=75 width=125></img>
+FOXA1,c.763_776delGAGAACGGCTGCTA,E255fs,Somatic,14%,0%,18.1%,<img src="data/FOXA1_expression_XXX.png" height=75 width=125></img>

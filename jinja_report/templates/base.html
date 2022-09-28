@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{ inputs.get('title') }}</title>
+  <style>
+  {% include "style.css" %}
+  {% include "default_multiqc.css" %}
+  </style>
+
+  {% block extrahead %}
+  {% endblock %}
+</head>
+
+<body>
+  
+  {% include 'nav.html' %}
+
+  <div class="mainpage">
+
+    <main>
+
+      <header>
+        <h1>{{ inputs.get('title') }}</h1>
+      </header>
+
+      {% include "images.html" %}
+
+  </div>
+  <footer>
+    <p>Report generated on {{ inputs.get("report_time").strftime("%Y-%m-%d %H:%M") }}.</p>
+  </footer>
+</body>
+</html>

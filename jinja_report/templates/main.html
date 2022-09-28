@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% from "regulator.html" import regulator %}
+
+{% block extrahead %}
+<style>
+#pathway-summary {
+  height: 300px;
+  margin: 0 auto;
+  display: block;
+}
+</style>
+{% endblock %}
+
+{% block background %}
+<ul>
+  <li>Diagnosis: Metastatic Adenocarcinoma</li>
+    <ul>
+      <li>ER/PR Positive, HER2 Amplified</li>
+    </ul>
+  <li>Gender: Female</li>
+</ul>
+{% endblock %}
+
+{% block history %}
+<ul>
+  <li>Tissue Biopsy 1</li>
+    <ul>
+      <li>BEMS ID: 0000XXXXXX</li>
+      <li>Purity: XX%</li>
+    </ul>
+</ul>
+{% endblock %}
+
+{% block summary %}
+  {% include "summary.html" %}
+{% endblock %}
+
+{% block pathways %}
+<h1>GeneTrails Pathway Summary</h1>
+<img src="data/genetrails_cancernetwork_pathway.png" id="pathway-cancernetwork"/>
+<h1>RPPA Pathway Summary</h1>
+<img src="data/causalpath_pathway.png" id="pathway-image"/>
+{% endblock %}
+
+{% block genetrails %}
+  {% include "extended-genetrails.html" %}
+{% endblock %}
+
+{% block cnvkit %}
+<h1>CNVkit Results</h1>
+<img src="data/cnvkit_heatmap.png" id="cnvkit-heatmap"/>
+{% endblock %}
+
+{% block fusions %}
+  {% include "fusion-table.html" %}
+{% endblock %}
+
+{% block signatures %}
+<div class="signature-row">
+  <div class="column">
+    <h3>HRD Signature</h3>
+    <img src="data/hrd.png" id="hrd-image"/>
+  </div>
+  <div class="column">
+    <h3>Stemness Signature</h3>
+    <img src="data/stemness.png" id="stemness-image"/>
+  </div>
+</div>
+<div class="signature-row">
+  <div class="column">
+    <h3>PRECEPT1 - Tumor Expression Characteristics</h3>
+    <img src="data/eurydice.png" id="eurydice-image"/>
+  </div>
+</div>
+<div class="signature-row">
+  <div class="column">
+    <h3>Interactive Visualization 01</h3>
+    <iframe src="data/ml_vis02.html" id="interactive_viz02" width="500" height="400"/>
+  </div>
+</div>
+{% endblock %}
+
+{% block methods %}
+  {% include "methods.html" %}
+{% endblock %}
+
+{% block contact %}
+  {% include "contacts.html" %}
+{% endblock %}

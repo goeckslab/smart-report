@@ -1,0 +1,4 @@
+drug,gene,data_type,evidence
+Olaparib (PARP inhibitor),BRCA2 (CN Loss),Clinical DNA,G2P (supports in HER- BRCA; clinical trials); HRD (slight)
+Palbociclib (CDK 4/6 inhibitor),CDKN2A (CN loss),Clinical DNA,G2P (supports in HER- BRCA; clinical trials)
+Everolimus (mTOR inhibitor),mTOR pathway protein expression,Research RPPA,RPPA Pathway analysis (supports)

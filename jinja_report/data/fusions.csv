@@ -1,0 +1,2 @@
+left_gene,left_breakpoint,right_gene,right_breakpoint,spanning_junction,type,distance
+IL6R,1:154427057:+,KIFAP3,1:169890922:-,50/55,Intrachromosomal,15.45Mb
