@@ -140,3 +140,13 @@ footer {
     color: #666;
     font-size: .8em;
 }
+
+.element_title {
+    text-align: justify;
+    font-weight: bold;
+    font-size: large;
+}
+
+.mqc_mplplot_plotgroup {
+  display: flexbox
+}

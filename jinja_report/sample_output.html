@@ -146,6 +146,16 @@ footer {
     color: #666;
     font-size: .8em;
 }
+
+.element_title {
+    text-align: justify;
+    font-weight: bold;
+    font-size: large;
+}
+
+.mqc_mplplot_plotgroup {
+  display: flexbox
+}
   /* CSS Styles for Default MultiQC Report Template */
 
 /* General Styles */
@@ -1106,14 +1116,7 @@ tbody .sorthandle {
   </style>
 
   
-<style>
-#pathway-summary {
-  height: 300px;
-  margin: 0 auto;
-  display: block;
-}
-</style>
-
+  
 </head>
 
 <body>
@@ -1135,70 +1138,119 @@ tbody .sorthandle {
       <ul>
         
         <li>
-          <a href=#image_0 class="nav-l2">BRCA2_expression_XXX</a>
+          <a href="#image_0" class="nav-l2">BRCA2_expression_XXX</a>
         </li>
         
         <li>
-          <a href=#image_1 class="nav-l2">causalpath_pathway</a>
+          <a href="#image_1" class="nav-l2">causalpath_pathway</a>
         </li>
         
         <li>
-          <a href=#image_2 class="nav-l2">CDKN2A_expression_XXX</a>
+          <a href="#image_2" class="nav-l2">CDKN2A_expression_XXX</a>
         </li>
         
         <li>
-          <a href=#image_3 class="nav-l2">cnvkit_heatmap</a>
+          <a href="#image_3" class="nav-l2">cnvkit_heatmap</a>
         </li>
         
         <li>
-          <a href=#image_4 class="nav-l2">eurydice</a>
+          <a href="#image_4" class="nav-l2">eurydice</a>
         </li>
         
         <li>
-          <a href=#image_5 class="nav-l2">FGFR3-expression</a>
+          <a href="#image_5" class="nav-l2">FGFR3-expression</a>
         </li>
         
         <li>
-          <a href=#image_6 class="nav-l2">FGFR3_expression_XXX</a>
+          <a href="#image_6" class="nav-l2">FGFR3_expression_XXX</a>
         </li>
         
         <li>
-          <a href=#image_7 class="nav-l2">FOXA1_expression_XXX</a>
+          <a href="#image_7" class="nav-l2">FOXA1_expression_XXX</a>
         </li>
         
         <li>
-          <a href=#image_8 class="nav-l2">GATA3_expression_XXX</a>
+          <a href="#image_8" class="nav-l2">GATA3_expression_XXX</a>
         </li>
         
         <li>
-          <a href=#image_9 class="nav-l2">genetrails_cancernetwork_pathway</a>
+          <a href="#image_9" class="nav-l2">genetrails_cancernetwork_pathway</a>
         </li>
         
         <li>
-          <a href=#image_10 class="nav-l2">hrd</a>
+          <a href="#image_10" class="nav-l2">hrd</a>
         </li>
         
         <li>
-          <a href=#image_11 class="nav-l2">MCL1_expression_XXX</a>
+          <a href="#image_11" class="nav-l2">MCL1_expression_XXX</a>
         </li>
         
         <li>
-          <a href=#image_12 class="nav-l2">NF1_expression_XXX</a>
+          <a href="#image_12" class="nav-l2">NF1_expression_XXX</a>
         </li>
         
         <li>
-          <a href=#image_13 class="nav-l2">ROS1_expression_XXX</a>
+          <a href="#image_13" class="nav-l2">ROS1_expression_XXX</a>
         </li>
         
         <li>
-          <a href=#image_14 class="nav-l2">stemness</a>
+          <a href="#image_14" class="nav-l2">stemness</a>
         </li>
         
       </ul>
-      
-      
     </ul>
     
+
+        
+    <ul class="mqc-nav collapse navbar-collapse">
+      <li>
+        <a href="#all_htmls" class="nav-l1">All HTMLs</a>
+      </li>
+      <ul>
+        
+        <li>
+          <a href="#html_0" class="nav-l2">ml_vis01</a>
+        </li>
+        
+        <li>
+          <a href="#html_1" class="nav-l2">ml_vis02</a>
+        </li>
+        
+        <li>
+          <a href="#html_2" class="nav-l2">ml_vis03</a>
+        </li>
+        
+        <li>
+          <a href="#html_3" class="nav-l2">ml_vis04</a>
+        </li>
+        
+        <li>
+          <a href="#html_4" class="nav-l2">ml_vis05</a>
+        </li>
+        
+      </ul>
+    </ul>
+    
+
+        
+    <ul class="mqc-nav collapse navbar-collapse">
+      <li>
+        <a href="#all_jsons" class="nav-l1">All JSONs</a>
+      </li>
+      <ul>
+        
+        <li>
+          <a href="#json_0" class="nav-l2">description</a>
+        </li>
+        
+        <li>
+          <a href="#json_1" class="nav-l2">training_statistics</a>
+        </li>
+        
+      </ul>
+    </ul>
+    
+
   </div>
   <!-- Nav Width Toggle Button -->
   <div id="side-nav-handle"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></div>
@@ -1208,8 +1260,6 @@ tbody .sorthandle {
 
     <main>
 
-      
-
       <header>
         <h1>Smart Report</h1>
       </header>
@@ -1218,43 +1268,134 @@ tbody .sorthandle {
 
 <div class="mqc_mplplot_plotgroup" id="all_images">
     
-    <div class="mqc_mplplot" id=image_0><img src=data/BRCA2_expression_XXX.png /></div>
+    <div class="mqc_mplplot" id="image_0">
+        <div class="element_title">BRCA2_expression_XXX</div>
+        <img src="data/BRCA2_expression_XXX.png" />
+    </div>
     
-    <div class="mqc_mplplot" id=image_1><img src=data/causalpath_pathway.png /></div>
+    <div class="mqc_mplplot" id="image_1">
+        <div class="element_title">causalpath_pathway</div>
+        <img src="data/causalpath_pathway.png" />
+    </div>
     
-    <div class="mqc_mplplot" id=image_2><img src=data/CDKN2A_expression_XXX.png /></div>
+    <div class="mqc_mplplot" id="image_2">
+        <div class="element_title">CDKN2A_expression_XXX</div>
+        <img src="data/CDKN2A_expression_XXX.png" />
+    </div>
     
-    <div class="mqc_mplplot" id=image_3><img src=data/cnvkit_heatmap.png /></div>
+    <div class="mqc_mplplot" id="image_3">
+        <div class="element_title">cnvkit_heatmap</div>
+        <img src="data/cnvkit_heatmap.png" />
+    </div>
     
-    <div class="mqc_mplplot" id=image_4><img src=data/eurydice.png /></div>
+    <div class="mqc_mplplot" id="image_4">
+        <div class="element_title">eurydice</div>
+        <img src="data/eurydice.png" />
+    </div>
     
-    <div class="mqc_mplplot" id=image_5><img src=data/FGFR3-expression.png /></div>
+    <div class="mqc_mplplot" id="image_5">
+        <div class="element_title">FGFR3-expression</div>
+        <img src="data/FGFR3-expression.png" />
+    </div>
     
-    <div class="mqc_mplplot" id=image_6><img src=data/FGFR3_expression_XXX.png /></div>
+    <div class="mqc_mplplot" id="image_6">
+        <div class="element_title">FGFR3_expression_XXX</div>
+        <img src="data/FGFR3_expression_XXX.png" />
+    </div>
     
-    <div class="mqc_mplplot" id=image_7><img src=data/FOXA1_expression_XXX.png /></div>
+    <div class="mqc_mplplot" id="image_7">
+        <div class="element_title">FOXA1_expression_XXX</div>
+        <img src="data/FOXA1_expression_XXX.png" />
+    </div>
     
-    <div class="mqc_mplplot" id=image_8><img src=data/GATA3_expression_XXX.png /></div>
+    <div class="mqc_mplplot" id="image_8">
+        <div class="element_title">GATA3_expression_XXX</div>
+        <img src="data/GATA3_expression_XXX.png" />
+    </div>
     
-    <div class="mqc_mplplot" id=image_9><img src=data/genetrails_cancernetwork_pathway.png /></div>
+    <div class="mqc_mplplot" id="image_9">
+        <div class="element_title">genetrails_cancernetwork_pathway</div>
+        <img src="data/genetrails_cancernetwork_pathway.png" />
+    </div>
     
-    <div class="mqc_mplplot" id=image_10><img src=data/hrd.png /></div>
+    <div class="mqc_mplplot" id="image_10">
+        <div class="element_title">hrd</div>
+        <img src="data/hrd.png" />
+    </div>
     
-    <div class="mqc_mplplot" id=image_11><img src=data/MCL1_expression_XXX.png /></div>
+    <div class="mqc_mplplot" id="image_11">
+        <div class="element_title">MCL1_expression_XXX</div>
+        <img src="data/MCL1_expression_XXX.png" />
+    </div>
     
-    <div class="mqc_mplplot" id=image_12><img src=data/NF1_expression_XXX.png /></div>
+    <div class="mqc_mplplot" id="image_12">
+        <div class="element_title">NF1_expression_XXX</div>
+        <img src="data/NF1_expression_XXX.png" />
+    </div>
     
-    <div class="mqc_mplplot" id=image_13><img src=data/ROS1_expression_XXX.png /></div>
+    <div class="mqc_mplplot" id="image_13">
+        <div class="element_title">ROS1_expression_XXX</div>
+        <img src="data/ROS1_expression_XXX.png" />
+    </div>
     
-    <div class="mqc_mplplot" id=image_14><img src=data/stemness.png /></div>
+    <div class="mqc_mplplot" id="image_14">
+        <div class="element_title">stemness</div>
+        <img src="data/stemness.png" />
+    </div>
     
 </div>
 
 
       
+<div class="mqc_mplplot_plotgroup" id="all_htmls">
+    
+    <div class="mqc_mplplot" id="html_0">
+        <div class="element_title">ml_vis01</div>
+        <iframe src="data/ml_vis01.html " target="_blank" height="400" width="100%"></iframe>
+    </div>
+    
+    <div class="mqc_mplplot" id="html_1">
+        <div class="element_title">ml_vis02</div>
+        <iframe src="data/ml_vis02.html " target="_blank" height="400" width="100%"></iframe>
+    </div>
+    
+    <div class="mqc_mplplot" id="html_2">
+        <div class="element_title">ml_vis03</div>
+        <iframe src="data/ml_vis03.html " target="_blank" height="400" width="100%"></iframe>
+    </div>
+    
+    <div class="mqc_mplplot" id="html_3">
+        <div class="element_title">ml_vis04</div>
+        <iframe src="data/ml_vis04.html " target="_blank" height="400" width="100%"></iframe>
+    </div>
+    
+    <div class="mqc_mplplot" id="html_4">
+        <div class="element_title">ml_vis05</div>
+        <iframe src="data/ml_vis05.html " target="_blank" height="400" width="100%"></iframe>
+    </div>
+    
+</div>
+
+
+      
+<div class="mqc_mplplot_plotgroup" id="all_jsons">
+    
+    <div class="mqc_mplplot" id="json_0">
+        <div class="element_title">description</div>
+        <iframe src="data/description.json" height="400" width="100%"></iframe>
+    </div>
+    
+    <div class="mqc_mplplot" id="json_1">
+        <div class="element_title">training_statistics</div>
+        <iframe src="data/training_statistics.json" height="400" width="100%"></iframe>
+    </div>
+    
+</div>
+
+
   </div>
   <footer>
-    <p>Report generated on 2022-09-27 23:27.</p>
+    <p>Report generated on 2022-09-28 16:47.</p>
   </footer>
 </body>
 </html>

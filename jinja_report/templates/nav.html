@@ -13,7 +13,7 @@ The side navigation for the report.
     {% endif %}
     <p class="mqc_loading_warning">Loading report..</p>
 
-    {% if inputs.get("image")  %}    
+    {% if inputs.get("image")  %}
     <ul class="mqc-nav collapse navbar-collapse">
       <li>
         <a href="#all_images" class="nav-l1">All images</a>
@@ -21,14 +21,43 @@ The side navigation for the report.
       <ul>
         {% for im in inputs.get("image") %}
         <li>
-          <a href={{ "#"+im["id"] }} class="nav-l2">{{ im["label"]|striptags }}</a>
+          <a href="{{ "#"+im["id"] }}" class="nav-l2">{{ im["label"]|striptags }}</a>
         </li>
         {% endfor %}
       </ul>
-      
-      
     </ul>
     {% endif %}
+
+    {% if inputs.get("html")  %}
+    <ul class="mqc-nav collapse navbar-collapse">
+      <li>
+        <a href="#all_htmls" class="nav-l1">All HTMLs</a>
+      </li>
+      <ul>
+        {% for html in inputs.get("html") %}
+        <li>
+          <a href="{{ "#"+html["id"] }}" class="nav-l2">{{ html["label"]|striptags }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </ul>
+    {% endif %}
+
+    {% if inputs.get("json")  %}
+    <ul class="mqc-nav collapse navbar-collapse">
+      <li>
+        <a href="#all_jsons" class="nav-l1">All JSONs</a>
+      </li>
+      <ul>
+        {% for json in inputs.get("json") %}
+        <li>
+          <a href="{{ "#"+json["id"] }}" class="nav-l2">{{ json["label"]|striptags }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </ul>
+    {% endif %}
+
   </div>
   <!-- Nav Width Toggle Button -->
   <div id="side-nav-handle"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></div>

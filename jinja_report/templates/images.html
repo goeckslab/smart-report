@@ -1,0 +1,11 @@
+
+{% if inputs["image"] %}
+<div class="mqc_mplplot_plotgroup" id="all_images">
+    {% for im in inputs["image"] %}
+    <div class="mqc_mplplot" id="{{ im["id"] }}">
+        <div class="element_title">{{ im["label"] }}</div>
+        <img src="{{ im["src"] }}" />
+    </div>
+    {% endfor %}
+</div>
+{% endif %}

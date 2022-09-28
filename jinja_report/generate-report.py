@@ -28,15 +28,15 @@ if REPORT_INPUTS_PATH.exists():
 else:
     inputs = defaultdict(list)
     for fl in sorted(os.listdir(DATA_PATH), key=lambda e: e.lower()):
-        element =  {"src": DATA_PATH+"/"+fl, "label": fl[:-4]}
+        element =  {"src": DATA_PATH+"/"+fl}
         if fl.endswith(".png"):
-            inputs["image"].append({"id": "image_"+str(len(inputs["image"])), **element})
+            inputs["image"].append({"id": "image_"+str(len(inputs["image"])), **element, "label": fl[:-4]})
         elif fl.endswith(".json"):
-            inputs["json"].append({"id": "json_"+str(len(inputs["json"])), **element})
+            inputs["json"].append({"id": "json_"+str(len(inputs["json"])), **element, "label": fl[:-5]})
         elif fl.endswith(".html"):
-            inputs["html"].append({"id": "html_"+str(len(inputs["html"])), **element})
+            inputs["html"].append({"id": "html_"+str(len(inputs["html"])), **element, "label": fl[:-5]})
         else:
-            inputs["others"].append({"id": "others_"+str(len(inputs["others"])), **element})
+            inputs["others"].append({"id": "others_"+str(len(inputs["others"])), **element, "label": fl})
 
 if not inputs.get('title'):
     inputs["title"] = "Smart Report"
