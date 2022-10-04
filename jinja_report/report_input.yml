@@ -35,11 +35,12 @@ Raw JSONs:
 
 Plain Texts:
   - src: data/text_example01.txt
-  - type: text
-  - title: Text Example
+    type: text
+    title: Text Example
 
 Unclassified Item:
   - src: data/model01
+    type: unclassified
 
 Mixed:
   - src: data/NF1_exression_XXX.png

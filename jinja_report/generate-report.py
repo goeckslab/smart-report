@@ -55,7 +55,6 @@ class Image(BaseResources):
         self.label = label
         self.title = title
         self.caption = caption
-        
 
     def render(self) -> dict:
         label = self.label
@@ -139,38 +138,56 @@ def main():
         with open(REPORT_INPUTS, "r") as fh:
             inputs = yaml.safe_load(fh)
 
+        id_counter = defaultdict(int)
+        for key, section in inputs.items():
+            if key == "title":
+                continue
+            for ix, item in enumerate(section):
+                itype = item.pop("type")
+                section[ix] = {
+                    "id": itype + "_" + str(id_counter[itype]),
+                    "type": itype,
+                }
+                section[ix].update(resources_registry[itype](**item).render())
+                id_counter[itype] += 1
     else:
         inputs = defaultdict(list)
         for fl in sorted(os.listdir(DATA), key=lambda e: e.lower()):
-            element =  {"src": DATA+"/"+fl}
+            element =  {"src": DATA + "/" + fl}
             if fl.endswith(".png"):
                 inputs["All Images"].append({
-                    "id": "image_"+str(len(inputs["All Images"])),
+                    "id": Image.type + "_" + str(len(inputs["All Images"])),
+                    "type": Image.type,
                     **Image(**element).render()
                 })
             elif fl.endswith(".json"):
                 inputs["Raw JSONS"].append({
-                    "id": "json_"+str(len(inputs["Raw JSONS"])),
+                    "id": JSON.type + "_" + str(len(inputs["Raw JSONS"])),
+                    "type": JSON.type,
                     **JSON(**element).render(),
                 })
             elif fl.endswith(".html"):
                 inputs["Interactive Plots"].append({
-                    "id": "html_"+str(len(inputs["Interactive Plots"])),
+                    "id": HTML.type + "_" + str(len(inputs["Interactive Plots"])),
+                    "type": HTML.type,
                     **HTML(**element).render(),
                 })
             elif fl.endswith(".csv"):
                 inputs["Pretty Tables"].append({
-                    "id": "table_"+str(len(inputs["Pretty Tables"])),
+                    "id": HTML.type + "_" + str(len(inputs["Pretty Tables"])),
+                    "type": Table.type,
                     **Table(**element).render(),
                 })
             elif fl.endswith(".txt"):
                 inputs["Plain Texts"].append({
-                    "id": "text_"+str(len(inputs["Plain Texts"])),
+                    "id": Text.type + "_" + str(len(inputs["Plain Texts"])),
+                    "type": Text.type,
                     **Text(**element).render(),
                 })
             else:
                 inputs["Miscellaneous"].append({
-                    "id": "misc_"+str(len(inputs["Miscellaneous"])),
+                    "id": Unclassified + "_" +str(len(inputs["Miscellaneous"])),
+                    "type": Unclassified.type,
                     **Unclassified(**element).render(),
                 })
 
