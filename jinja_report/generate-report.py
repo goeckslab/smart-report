@@ -2,6 +2,7 @@
 Supported data types are:
 PNG, JSON, HTML, Others as binary.
 """
+import csv
 import pathlib
 import os
 
@@ -9,7 +10,6 @@ from collections import defaultdict
 from datetime import datetime
 
 import jinja2
-import pandas as pd
 import yaml
 
 
@@ -46,31 +46,6 @@ class BaseResources:
 
 
 @register_resources()
-class Image(BaseResources):
-    type = "image"
-    suffix = ".png"
-
-    def __init__(self, src: str, label: str = None, title: str = None, caption: str = None) -> None:
-        super().__init__(src)
-        self.label = label
-        self.title = title
-        self.caption = caption
-
-    def render(self) -> dict:
-        label = self.label
-        if not label:
-            label = self.src[:-len(self.suffix)] if self.suffix and self.src.endswith(self.suffix) else self.src
-            if "/" in label:
-                label = label[label.rindex("/")+1 :]
-        return {
-            "src": self.src,
-            "label": label,
-            "title": self.title or label,
-            "caption": self.caption,
-        }
-
-
-@register_resources()
 class Text(BaseResources):
     type = "text"
     suffix = ".txt"
@@ -80,16 +55,47 @@ class Text(BaseResources):
         self.label = label
         self.title = title
 
-    def render(self) -> dict:
+    @property
+    def labelToRender(self):
         label = self.label
         if not label:
-            label = self.src[:-len(self.suffix)] if self.suffix and self.src.endswith(self.suffix) else self.src
+            label = self.src[:-len(self.suffix)]\
+                if self.suffix and self.src.endswith(self.suffix) else self.src
             if "/" in label:
                 label = label[label.rindex("/")+1 :]
+        return label
+
+    def render(self) -> dict:
+        label = self.labelToRender
         return {
             "src": self.src,
             "label": label,
             "title": self.title or label,
+        }
+
+@register_resources()
+class Image(Text):
+    type = "image"
+    suffix = ".png"
+
+    def __init__(
+        self, src: str,
+        label: str = None,
+        title: str = None,
+        caption: str = None
+    ) -> None:
+        super().__init__(src)
+        self.label = label
+        self.title = title
+        self.caption = caption
+
+    def render(self) -> dict:
+        label = self.labelToRender
+        return {
+            "src": self.src,
+            "label": label,
+            "title": self.title or label,
+            "caption": self.caption,
         }
 
 
@@ -100,7 +106,7 @@ class HTML(Text):
 
 
 @register_resources()
-class JSON(HTML):
+class JSON(Text):
     type = "json"
     suffix = ".json"
 
@@ -111,19 +117,18 @@ class Table(Image):
     suffix = ".csv"
 
     def render(self) -> dict:
-        label = self.label
-        if not label:
-            label = self.src[:-len(self.suffix)] if self.suffix and self.src.endswith(self.suffix) else self.src
-            if "/" in label:
-                label = label[label.rindex("/")+1 :]
-        df = pd.read_csv(self.src)
+        label = self.labelToRender
+        with open(self.src, newline='') as csvfile:
+            reader = csv.reader(csvfile)
+            headers = list(next(reader))
+            values = list(reader)
         return {
             "src": self.src,
             "label": label,
             "title": self.title or label,
             "caption": self.caption,
-            "headers": list(df.columns),
-            "values": df.values.tolist(),
+            "headers": headers,
+            "values": values,
         }
 
 
