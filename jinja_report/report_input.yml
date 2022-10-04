@@ -1,0 +1,52 @@
+
+title: Smart Report Title
+
+# sections
+Awesome Images:
+  - src: data/BRCA2_expression_XXX.png
+    type: image
+    title: BRCA2_expression_XXX
+  - src: data/MCL1_expression_XXX.png
+    type: image
+    caption: This is an awesome image.
+
+Interactive Plots:
+  - src: data/ml_vis01.html
+    type: html
+    title: Feature Importances
+  - src: data/ml_vis02.html
+    type: html
+    label: learning curve for xx
+
+Pretty Tables:
+  - src: data/summary.csv
+    type: table
+    title: Summary
+  - src: data/genetrails-variants.csv
+    type: table
+
+Raw JSONs:
+  - src: data/training_statistics.json
+    type: json
+    title: Training Statistics
+  - src: data/description.json
+    type: json
+    label: model description
+
+Plain Texts:
+  - src: data/text_example01.txt
+  - type: text
+  - title: Text Example
+
+Unclassified Item:
+  - src: data/model01
+
+Mixed:
+  - src: data/NF1_exression_XXX.png
+    type: image
+  - src: data/ml_vis04.html
+    type: html
+
+
+
+    
