@@ -58,7 +58,11 @@ class Image(BaseResources):
         
 
     def render(self) -> dict:
-        label = self.label or self.src[:-self.suffix] if self.src.endswith(self.suffix) else self.src
+        label = self.label
+        if not label:
+            label = self.src[:-len(self.suffix)] if self.suffix and self.src.endswith(self.suffix) else self.src
+            if "/" in label:
+                label = label[label.rindex("/")+1 :]
         return {
             "src": self.src,
             "label": label,
@@ -78,7 +82,11 @@ class Text(BaseResources):
         self.title = title
 
     def render(self) -> dict:
-        label = self.label or self.src[:-len(self.suffix)] if self.src.endswith(self.suffix) else self.src
+        label = self.label
+        if not label:
+            label = self.src[:-len(self.suffix)] if self.suffix and self.src.endswith(self.suffix) else self.src
+            if "/" in label:
+                label = label[label.rindex("/")+1 :]
         return {
             "src": self.src,
             "label": label,
@@ -104,19 +112,23 @@ class Table(Image):
     suffix = ".csv"
 
     def render(self) -> dict:
-        label = self.label or self.src[:-len(self.suffix)] if self.src.endswith(self.suffix) else self.src
+        label = self.label
+        if not label:
+            label = self.src[:-len(self.suffix)] if self.suffix and self.src.endswith(self.suffix) else self.src
+            if "/" in label:
+                label = label[label.rindex("/")+1 :]
         df = pd.read_csv(self.src)
         return {
             "src": self.src,
             "label": label,
             "title": self.title or label,
             "caption": self.caption,
-            "headers": df.columns,
+            "headers": list(df.columns),
             "values": df.values.tolist(),
         }
 
 
-@resources_registry()
+@register_resources()
 class Unclassified(Text):
     type = "unclassified"
     suffix = ""
@@ -126,39 +138,40 @@ def main():
     if REPORT_INPUTS.exists():
         with open(REPORT_INPUTS, "r") as fh:
             inputs = yaml.safe_load(fh)
+
     else:
         inputs = defaultdict(list)
         for fl in sorted(os.listdir(DATA), key=lambda e: e.lower()):
             element =  {"src": DATA+"/"+fl}
             if fl.endswith(".png"):
-                inputs["image"].append({
-                    "id": "image_"+str(len(inputs["image"])),
-                    **element,
-                    "label": fl[:-4],
+                inputs["All Images"].append({
+                    "id": "image_"+str(len(inputs["All Images"])),
+                    **Image(**element).render()
                 })
             elif fl.endswith(".json"):
-                inputs["json"].append({
-                    "id": "json_"+str(len(inputs["json"])),
-                    **element,
-                    "label": fl[:-5],
+                inputs["Raw JSONS"].append({
+                    "id": "json_"+str(len(inputs["Raw JSONS"])),
+                    **JSON(**element).render(),
                 })
             elif fl.endswith(".html"):
-                inputs["html"].append({
-                    "id": "html_"+str(len(inputs["html"])),
-                    **element,
-                    "label": fl[:-5],
+                inputs["Interactive Plots"].append({
+                    "id": "html_"+str(len(inputs["Interactive Plots"])),
+                    **HTML(**element).render(),
                 })
             elif fl.endswith(".csv"):
-                inputs["csv"].append({
-                    "id": "csv"+str(len(inputs["csv"])),
-                    **element,
-                    "label": fl[:-4],
+                inputs["Pretty Tables"].append({
+                    "id": "table_"+str(len(inputs["Pretty Tables"])),
+                    **Table(**element).render(),
+                })
+            elif fl.endswith(".txt"):
+                inputs["Plain Texts"].append({
+                    "id": "text_"+str(len(inputs["Plain Texts"])),
+                    **Text(**element).render(),
                 })
             else:
-                inputs["others"].append({
-                    "id": "others_"+str(len(inputs["others"])),
-                    **element,
-                    "label": fl,
+                inputs["Miscellaneous"].append({
+                    "id": "misc_"+str(len(inputs["Miscellaneous"])),
+                    **Unclassified(**element).render(),
                 })
 
     if not inputs.get('title'):
