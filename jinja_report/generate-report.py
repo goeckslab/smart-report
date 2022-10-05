@@ -193,7 +193,7 @@ def main():
                 })
             else:
                 inputs["Miscellaneous"].append({
-                    "id": Unclassified + "_" +str(len(inputs["Miscellaneous"])),
+                    "id": Unclassified.type + "_" +str(len(inputs["Miscellaneous"])),
                     "type": Unclassified.type,
                     **Unclassified(**element).render(),
                 })
