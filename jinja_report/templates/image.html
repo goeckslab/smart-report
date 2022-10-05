@@ -1,0 +1,9 @@
+
+{% macro render_image(config) -%}
+  <div class="image-resources" id="{{ config["id"] }}">
+    {% if config["title"] %}
+      <h1>{{ config["title"] }}</h1>
+    {% endif %}
+    <img src="{{ config["src"] }}" />
+  </div>
+{%- endmacro %}

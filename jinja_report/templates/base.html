@@ -13,8 +13,14 @@
 </head>
 
 <body>
-  
-  {% include 'nav.html' %}
+
+  {% block nav_sidebar %}
+  <div class="side-nav-wrapper">
+    <div class="side-nav">
+      <p>Missing Navigation ...</p>
+    </div>
+  </div>
+  {% endblock %}
 
   <div class="mainpage">
 
@@ -24,11 +30,9 @@
         <h1>{{ inputs.get('title') }}</h1>
       </header>
 
-      {% include "images.html" %}
-
-      {% include "htmls.html" %}
-
-      {% include "jsons.html" %}
+      {% block main_page %}
+        <div><h1>Missing main content ...</h1></div>
+      {% endblock %}
 
   </div>
   <footer>

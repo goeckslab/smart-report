@@ -1,3 +1,30 @@
 {% extends "base.html" %}
-{% from "regulator.html" import regulator %}
+{% from "image.html" import render_image %}
 
+
+{% block nav_sidebar %}
+
+  {% include "nav.html" %}
+
+{% endblock %}
+
+
+{% block main_page %}
+
+  {% for key, section in inputs.items() %}
+    {% if key not in ("title", "report_time") %}
+      <section class="resources-section">
+        {% for item in section %}
+          {% if item.type == "image" %}
+            {{ render_image(item) }}
+          {% endif %}
+        {% endfor %}
+      </section>
+    {% endif%}
+  {% endfor %}
+
+  {% include "htmls.html" %}
+
+  {% include "jsons.html" %}
+
+{% endblock %}

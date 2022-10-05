@@ -78,26 +78,6 @@ class Image(Text):
     type = "image"
     suffix = ".png"
 
-    def __init__(
-        self, src: str,
-        label: str = None,
-        title: str = None,
-        caption: str = None
-    ) -> None:
-        super().__init__(src)
-        self.label = label
-        self.title = title
-        self.caption = caption
-
-    def render(self) -> dict:
-        label = self.labelToRender
-        return {
-            "src": self.src,
-            "label": label,
-            "title": self.title or label,
-            "caption": self.caption,
-        }
-
 
 @register_resources()
 class HTML(Text):
@@ -112,9 +92,21 @@ class JSON(Text):
 
 
 @register_resources()
-class Table(Image):
+class Table(Text):
     type = "table"
     suffix = ".csv"
+
+    def __init__(
+        self,
+        src: str,
+        label: str = None,
+        title: str = None,
+        caption: str = None,
+    ) -> None:
+        super().__init__(src)
+        self.label = label
+        self.title = title
+        self.caption = caption
 
     def render(self) -> dict:
         label = self.labelToRender

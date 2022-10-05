@@ -3,12 +3,11 @@ title: Smart Report Title
 
 # sections
 Awesome Images:
-  - src: data/BRCA2_expression_XXX.png
+  - src: data/causalpath_pathway.png
     type: image
-    title: BRCA2_expression_XXX
-  - src: data/MCL1_expression_XXX.png
+    title: causalpath_pathway
+  - src: data/cnvkit_heatmap.png
     type: image
-    caption: This is an awesome image.
 
 Interactive Plots:
   - src: data/ml_vis01.html
@@ -43,7 +42,7 @@ Unclassified Item:
     type: unclassified
 
 Mixed:
-  - src: data/NF1_exression_XXX.png
+  - src: data/genetrails_cancernetwork_pathway.png
     type: image
   - src: data/ml_vis04.html
     type: html

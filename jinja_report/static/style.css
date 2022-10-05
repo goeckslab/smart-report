@@ -26,7 +26,7 @@ main {
     display: inline-block;
 }
 
-section h1 {
+section div h1 {
     color: #777;
     font-weight: 400;
     margin-bottom: 2em;
@@ -35,7 +35,7 @@ section h1 {
     border-bottom: 1px solid #eee;
 }
 
-section h2 {
+section div h2 {
     font-size: 1.1em;
 }
 
@@ -150,3 +150,16 @@ footer {
 .mqc_mplplot_plotgroup {
   display: flexbox
 }
+
+.resources-section {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.image-resources img {
+    max-height: 400px;
+    margin: 0 auto;
+    display: block;
+}
+
