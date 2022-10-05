@@ -50,14 +50,6 @@ class Image(BaseResources):
     type = "image"
     suffix = ".png"
 
-    def render(self) -> dict:
-        label = self.labelToRender
-        return {
-            "src": self.src,
-            "label": label,
-            "title": self.title or label,
-        }
-
     def __init__(self, src: str, label: str = None, title: str = None) -> None:
         super().__init__(src)
         self.label = label
@@ -72,6 +64,14 @@ class Image(BaseResources):
             if "/" in label:
                 label = label[label.rindex("/")+1 :]
         return label
+
+    def render(self) -> dict:
+        label = self.labelToRender
+        return {
+            "src": self.src,
+            "label": label,
+            "title": self.title or label,
+        }
 
 
 @register_resources()
