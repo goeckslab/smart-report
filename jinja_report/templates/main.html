@@ -1,5 +1,10 @@
 {% extends "base.html" %}
+{% from "raw_html.html" import render_html %}
 {% from "image.html" import render_image %}
+{% from "json.html" import render_json %}
+{% from "table.html" import render_table %}
+{% from "text.html" import render_text %}
+{% from "unclassified.html" import render_unclassified %}
 
 
 {% block nav_sidebar %}
@@ -13,18 +18,25 @@
 
   {% for key, section in inputs.items() %}
     {% if key not in ("title", "report_time") %}
-      <section class="resources-section">
+      <section class="resources-section" id="{{"section_"~loop.index}}">
         {% for item in section %}
-          {% if item.type == "image" %}
+          {% if item.type == "html" %}
+            {{ render_html(item) }}
+          {% elif item.type == "image" %}
             {{ render_image(item) }}
+          {% elif item.type == "json" %}
+            {{ render_json(item) }}
+          {% elif item.type == "table" %}
+            {{ render_table(item) }}
+          {% elif item.type == "text" %}
+            {{ render_text(item) }}
+          {% endif %}
+          {% if item.type == "unclassified" %}
+            {{ render_unclassified(item) }}
           {% endif %}
         {% endfor %}
       </section>
     {% endif%}
   {% endfor %}
-
-  {% include "htmls.html" %}
-
-  {% include "jsons.html" %}
 
 {% endblock %}

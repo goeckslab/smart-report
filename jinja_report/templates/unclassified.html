@@ -1,0 +1,9 @@
+
+{% macro render_unclassified(config) -%}
+  <div class="resources unclassified-type" id="{{ config["id"] }}">
+    {% if config["title"] %}
+      <h1>{{ config["title"] }}</h1>
+    {% endif %}
+    <a href="{{ config["src"] }}" >{{ config["label"]}}</a>
+  </div>
+{%- endmacro %}

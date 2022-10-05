@@ -46,9 +46,17 @@ class BaseResources:
 
 
 @register_resources()
-class Text(BaseResources):
-    type = "text"
-    suffix = ".txt"
+class Image(BaseResources):
+    type = "image"
+    suffix = ".png"
+
+    def render(self) -> dict:
+        label = self.labelToRender
+        return {
+            "src": self.src,
+            "label": label,
+            "title": self.title or label,
+        }
 
     def __init__(self, src: str, label: str = None, title: str = None) -> None:
         super().__init__(src)
@@ -65,34 +73,37 @@ class Text(BaseResources):
                 label = label[label.rindex("/")+1 :]
         return label
 
+
+@register_resources()
+class Text(Image):
+    type = "text"
+    suffix = ".txt"
+
     def render(self) -> dict:
         label = self.labelToRender
+        with open(self.src, "r") as fh:
+            text = fh.read()
         return {
-            "src": self.src,
+            "text": text,
             "label": label,
             "title": self.title or label,
         }
 
-@register_resources()
-class Image(Text):
-    type = "image"
-    suffix = ".png"
-
 
 @register_resources()
-class HTML(Text):
+class HTML(Image):
     type = "html"
     suffix = ".html"
 
 
 @register_resources()
-class JSON(Text):
+class JSON(Image):
     type = "json"
     suffix = ".json"
 
 
 @register_resources()
-class Table(Text):
+class Table(Image):
     type = "table"
     suffix = ".csv"
 
@@ -115,7 +126,6 @@ class Table(Text):
             headers = list(next(reader))
             values = list(reader)
         return {
-            "src": self.src,
             "label": label,
             "title": self.title or label,
             "caption": self.caption,
@@ -125,7 +135,7 @@ class Table(Text):
 
 
 @register_resources()
-class Unclassified(Text):
+class Unclassified(Image):
     type = "unclassified"
     suffix = ""
 

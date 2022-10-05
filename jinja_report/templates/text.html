@@ -1,0 +1,9 @@
+
+{% macro render_text(config) -%}
+  <div class="resources text-type" id="{{ config["id"] }}">
+    {% if config["title"] %}
+      <h1>{{ config["title"] }}</h1>
+    {% endif %}
+    <p>{{ config["text"] }}</p>
+  </div>
+{%- endmacro %}

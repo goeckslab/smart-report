@@ -1,0 +1,9 @@
+
+{% macro render_json(config) -%}
+  <div class="resources json-type" id="{{ config["id"] }}">
+    {% if config["title"] %}
+      <h1>{{ config["title"] }}</h1>
+    {% endif %}
+    <iframe src="{{ config["src"] }}" height="400" width="100%"></iframe>
+  </div>
+{%- endmacro %}

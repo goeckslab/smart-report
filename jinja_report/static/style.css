@@ -152,14 +152,18 @@ footer {
 }
 
 .resources-section {
-    margin-bottom: 1rem;
-    display: flex;
-    flex-flow: row wrap;
+    margin-bottom: 1.5rem;
 }
 
-.image-resources img {
+.resources img {
     max-height: 400px;
     margin: 0 auto;
     display: block;
 }
 
+.resources iframe {
+    aspect-ratio: 4 / 3;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+}

@@ -1,0 +1,11 @@
+
+{% macro render_html(config) -%}
+  <div class="resources html-type" id="{{ config["id"] }}">
+    {% if config["title"] %}
+      <h1>{{ config["title"] }}</h1>
+    {% endif %}
+    <div>
+      <iframe src="{{ config["src"] }}" height="400px" ></iframe>
+    </div>
+  </div>
+{%- endmacro %}

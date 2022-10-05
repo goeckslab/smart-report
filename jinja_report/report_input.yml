@@ -37,7 +37,7 @@ Plain Texts:
     type: text
     title: Text Example
 
-Unclassified Item:
+Unclassified Items:
   - src: data/model01
     type: unclassified
 

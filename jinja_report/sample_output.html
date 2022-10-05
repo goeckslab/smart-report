@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Smart Report</title>
+  <title>Smart Report Title</title>
   <style>
   html, body {
     padding: 0;
@@ -32,7 +32,7 @@ main {
     display: inline-block;
 }
 
-section h1 {
+section div h1 {
     color: #777;
     font-weight: 400;
     margin-bottom: 2em;
@@ -41,7 +41,7 @@ section h1 {
     border-bottom: 1px solid #eee;
 }
 
-section h2 {
+section div h2 {
     font-size: 1.1em;
 }
 
@@ -155,6 +155,23 @@ footer {
 
 .mqc_mplplot_plotgroup {
   display: flexbox
+}
+
+.resources-section {
+    margin-bottom: 1.5rem;
+}
+
+.resources img {
+    max-height: 400px;
+    margin: 0 auto;
+    display: block;
+}
+
+.resources iframe {
+    aspect-ratio: 4 / 3;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
 }
   /* CSS Styles for Default MultiQC Report Template */
 
@@ -1120,282 +1137,513 @@ tbody .sorthandle {
 </head>
 
 <body>
+
   
+
   
 
 <div class="side-nav-wrapper">
   <div class="side-nav">
     
-      <h1 class="side-nav-title"><a href="#">Smart Report</a></h1>
+      <h1 class="side-nav-title"><a href="#">Smart Report Title</a></h1>
     
     <p class="mqc_loading_warning">Loading report..</p>
 
-        
-    <ul class="mqc-nav collapse navbar-collapse">
-      <li>
-        <a href="#all_images" class="nav-l1">All images</a>
-      </li>
-      <ul>
-        
-        <li>
-          <a href="#image_0" class="nav-l2">BRCA2_expression_XXX</a>
-        </li>
-        
-        <li>
-          <a href="#image_1" class="nav-l2">causalpath_pathway</a>
-        </li>
-        
-        <li>
-          <a href="#image_2" class="nav-l2">CDKN2A_expression_XXX</a>
-        </li>
-        
-        <li>
-          <a href="#image_3" class="nav-l2">cnvkit_heatmap</a>
-        </li>
-        
-        <li>
-          <a href="#image_4" class="nav-l2">eurydice</a>
-        </li>
-        
-        <li>
-          <a href="#image_5" class="nav-l2">FGFR3-expression</a>
-        </li>
-        
-        <li>
-          <a href="#image_6" class="nav-l2">FGFR3_expression_XXX</a>
-        </li>
-        
-        <li>
-          <a href="#image_7" class="nav-l2">FOXA1_expression_XXX</a>
-        </li>
-        
-        <li>
-          <a href="#image_8" class="nav-l2">GATA3_expression_XXX</a>
-        </li>
-        
-        <li>
-          <a href="#image_9" class="nav-l2">genetrails_cancernetwork_pathway</a>
-        </li>
-        
-        <li>
-          <a href="#image_10" class="nav-l2">hrd</a>
-        </li>
-        
-        <li>
-          <a href="#image_11" class="nav-l2">MCL1_expression_XXX</a>
-        </li>
-        
-        <li>
-          <a href="#image_12" class="nav-l2">NF1_expression_XXX</a>
-        </li>
-        
-        <li>
-          <a href="#image_13" class="nav-l2">ROS1_expression_XXX</a>
-        </li>
-        
-        <li>
-          <a href="#image_14" class="nav-l2">stemness</a>
-        </li>
-        
-      </ul>
-    </ul>
     
-
-        
-    <ul class="mqc-nav collapse navbar-collapse">
-      <li>
-        <a href="#all_htmls" class="nav-l1">All HTMLs</a>
-      </li>
-      <ul>
-        
-        <li>
-          <a href="#html_0" class="nav-l2">ml_vis01</a>
-        </li>
-        
-        <li>
-          <a href="#html_1" class="nav-l2">ml_vis02</a>
-        </li>
-        
-        <li>
-          <a href="#html_2" class="nav-l2">ml_vis03</a>
-        </li>
-        
-        <li>
-          <a href="#html_3" class="nav-l2">ml_vis04</a>
-        </li>
-        
-        <li>
-          <a href="#html_4" class="nav-l2">ml_vis05</a>
-        </li>
-        
-      </ul>
-    </ul>
+      
     
-
-        
-    <ul class="mqc-nav collapse navbar-collapse">
-      <li>
-        <a href="#all_jsons" class="nav-l1">All JSONs</a>
-      </li>
-      <ul>
-        
-        <li>
-          <a href="#json_0" class="nav-l2">description</a>
-        </li>
-        
-        <li>
-          <a href="#json_1" class="nav-l2">training_statistics</a>
-        </li>
-        
-      </ul>
-    </ul>
+      
+        <ul class="mqc-nav collapse navbar-collapse">
+          <li>
+            <a href="#section_2" class="nav-l1">Awesome Images</a>
+          </li>
+          <ul>
+            
+            <li>
+              <a href="#image_0" class="nav-l2">causalpath_pathway</a>
+            </li>
+            
+            <li>
+              <a href="#image_1" class="nav-l2">cnvkit_heatmap</a>
+            </li>
+            
+          </ul>
+        </ul>
+      
     
-
+      
+        <ul class="mqc-nav collapse navbar-collapse">
+          <li>
+            <a href="#section_3" class="nav-l1">Interactive Plots</a>
+          </li>
+          <ul>
+            
+            <li>
+              <a href="#html_0" class="nav-l2">ml_vis01</a>
+            </li>
+            
+            <li>
+              <a href="#html_1" class="nav-l2">learning curve for xx</a>
+            </li>
+            
+          </ul>
+        </ul>
+      
+    
+      
+        <ul class="mqc-nav collapse navbar-collapse">
+          <li>
+            <a href="#section_4" class="nav-l1">Pretty Tables</a>
+          </li>
+          <ul>
+            
+            <li>
+              <a href="#table_0" class="nav-l2">summary</a>
+            </li>
+            
+            <li>
+              <a href="#table_1" class="nav-l2">genetrails-variants</a>
+            </li>
+            
+          </ul>
+        </ul>
+      
+    
+      
+        <ul class="mqc-nav collapse navbar-collapse">
+          <li>
+            <a href="#section_5" class="nav-l1">Raw JSONs</a>
+          </li>
+          <ul>
+            
+            <li>
+              <a href="#json_0" class="nav-l2">training_statistics</a>
+            </li>
+            
+            <li>
+              <a href="#json_1" class="nav-l2">model description</a>
+            </li>
+            
+          </ul>
+        </ul>
+      
+    
+      
+        <ul class="mqc-nav collapse navbar-collapse">
+          <li>
+            <a href="#section_6" class="nav-l1">Plain Texts</a>
+          </li>
+          <ul>
+            
+            <li>
+              <a href="#text_0" class="nav-l2">text_example01</a>
+            </li>
+            
+          </ul>
+        </ul>
+      
+    
+      
+        <ul class="mqc-nav collapse navbar-collapse">
+          <li>
+            <a href="#section_7" class="nav-l1">Unclassified Items</a>
+          </li>
+          <ul>
+            
+            <li>
+              <a href="#unclassified_0" class="nav-l2">model01</a>
+            </li>
+            
+          </ul>
+        </ul>
+      
+    
+      
+        <ul class="mqc-nav collapse navbar-collapse">
+          <li>
+            <a href="#section_8" class="nav-l1">Mixed</a>
+          </li>
+          <ul>
+            
+            <li>
+              <a href="#image_2" class="nav-l2">genetrails_cancernetwork_pathway</a>
+            </li>
+            
+            <li>
+              <a href="#html_2" class="nav-l2">ml_vis04</a>
+            </li>
+            
+          </ul>
+        </ul>
+      
+    
+      
+    
+    
   </div>
   <!-- Nav Width Toggle Button -->
   <div id="side-nav-handle"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></div>
 </div>
+
+
 
   <div class="mainpage">
 
     <main>
 
       <header>
-        <h1>Smart Report</h1>
+        <h1>Smart Report Title</h1>
       </header>
 
       
 
-<div class="mqc_mplplot_plotgroup" id="all_images">
+  
     
-    <div class="mqc_mplplot" id="image_0">
-        <div class="element_title">BRCA2_expression_XXX</div>
-        <img src="data/BRCA2_expression_XXX.png" />
+  
+    
+      <section class="resources-section" id="section_2">
+        
+          
+            <div class="resources image-type" id="image_0">
+    
+      <h1>causalpath_pathway</h1>
+    
+    <img src="data/causalpath_pathway.png" height="400" />
+  </div>
+          
+          
+        
+          
+            <div class="resources image-type" id="image_1">
+    
+      <h1>cnvkit_heatmap</h1>
+    
+    <img src="data/cnvkit_heatmap.png" height="400" />
+  </div>
+          
+          
+        
+      </section>
+    
+  
+    
+      <section class="resources-section" id="section_3">
+        
+          
+            <div class="resources html-type" id="html_0">
+    
+      <h1>Feature Importances</h1>
+    
+    <div>
+      <iframe src="data/ml_vis01.html" height="400px" ></iframe>
     </div>
+  </div>
+          
+          
+        
+          
+            <div class="resources html-type" id="html_1">
     
-    <div class="mqc_mplplot" id="image_1">
-        <div class="element_title">causalpath_pathway</div>
-        <img src="data/causalpath_pathway.png" />
+      <h1>learning curve for xx</h1>
+    
+    <div>
+      <iframe src="data/ml_vis02.html" height="400px" ></iframe>
     </div>
+  </div>
+          
+          
+        
+      </section>
     
-    <div class="mqc_mplplot" id="image_2">
-        <div class="element_title">CDKN2A_expression_XXX</div>
-        <img src="data/CDKN2A_expression_XXX.png" />
-    </div>
+  
     
-    <div class="mqc_mplplot" id="image_3">
-        <div class="element_title">cnvkit_heatmap</div>
-        <img src="data/cnvkit_heatmap.png" />
-    </div>
+      <section class="resources-section" id="section_4">
+        
+          
+            <div class="resources table-type" id="table_0">
     
-    <div class="mqc_mplplot" id="image_4">
-        <div class="element_title">eurydice</div>
-        <img src="data/eurydice.png" />
-    </div>
+      <h1>Summary</h1>
     
-    <div class="mqc_mplplot" id="image_5">
-        <div class="element_title">FGFR3-expression</div>
-        <img src="data/FGFR3-expression.png" />
-    </div>
-    
-    <div class="mqc_mplplot" id="image_6">
-        <div class="element_title">FGFR3_expression_XXX</div>
-        <img src="data/FGFR3_expression_XXX.png" />
-    </div>
-    
-    <div class="mqc_mplplot" id="image_7">
-        <div class="element_title">FOXA1_expression_XXX</div>
-        <img src="data/FOXA1_expression_XXX.png" />
-    </div>
-    
-    <div class="mqc_mplplot" id="image_8">
-        <div class="element_title">GATA3_expression_XXX</div>
-        <img src="data/GATA3_expression_XXX.png" />
-    </div>
-    
-    <div class="mqc_mplplot" id="image_9">
-        <div class="element_title">genetrails_cancernetwork_pathway</div>
-        <img src="data/genetrails_cancernetwork_pathway.png" />
-    </div>
-    
-    <div class="mqc_mplplot" id="image_10">
-        <div class="element_title">hrd</div>
-        <img src="data/hrd.png" />
-    </div>
-    
-    <div class="mqc_mplplot" id="image_11">
-        <div class="element_title">MCL1_expression_XXX</div>
-        <img src="data/MCL1_expression_XXX.png" />
-    </div>
-    
-    <div class="mqc_mplplot" id="image_12">
-        <div class="element_title">NF1_expression_XXX</div>
-        <img src="data/NF1_expression_XXX.png" />
-    </div>
-    
-    <div class="mqc_mplplot" id="image_13">
-        <div class="element_title">ROS1_expression_XXX</div>
-        <img src="data/ROS1_expression_XXX.png" />
-    </div>
-    
-    <div class="mqc_mplplot" id="image_14">
-        <div class="element_title">stemness</div>
-        <img src="data/stemness.png" />
-    </div>
-    
-</div>
-
-
+    <table>
       
-<div class="mqc_mplplot_plotgroup" id="all_htmls">
-    
-    <div class="mqc_mplplot" id="html_0">
-        <div class="element_title">ml_vis01</div>
-        <iframe src="data/ml_vis01.html " target="_blank" height="400" width="100%"></iframe>
-    </div>
-    
-    <div class="mqc_mplplot" id="html_1">
-        <div class="element_title">ml_vis02</div>
-        <iframe src="data/ml_vis02.html " target="_blank" height="400" width="100%"></iframe>
-    </div>
-    
-    <div class="mqc_mplplot" id="html_2">
-        <div class="element_title">ml_vis03</div>
-        <iframe src="data/ml_vis03.html " target="_blank" height="400" width="100%"></iframe>
-    </div>
-    
-    <div class="mqc_mplplot" id="html_3">
-        <div class="element_title">ml_vis04</div>
-        <iframe src="data/ml_vis04.html " target="_blank" height="400" width="100%"></iframe>
-    </div>
-    
-    <div class="mqc_mplplot" id="html_4">
-        <div class="element_title">ml_vis05</div>
-        <iframe src="data/ml_vis05.html " target="_blank" height="400" width="100%"></iframe>
-    </div>
-    
-</div>
-
-
+        <th>drug</th>
       
-<div class="mqc_mplplot_plotgroup" id="all_jsons">
+        <th>gene</th>
+      
+        <th>data_type</th>
+      
+        <th>evidence</th>
+      
+      
+        <tr>
+          
+            <td>Olaparib (PARP inhibitor)</td>
+          
+            <td>BRCA2 (CN Loss)</td>
+          
+            <td>Clinical DNA</td>
+          
+            <td>G2P (supports in HER- BRCA; clinical trials); HRD (slight)</td>
+          
+        </tr>
+      
+        <tr>
+          
+            <td>Palbociclib (CDK 4/6 inhibitor)</td>
+          
+            <td>CDKN2A (CN loss)</td>
+          
+            <td>Clinical DNA</td>
+          
+            <td>G2P (supports in HER- BRCA; clinical trials)</td>
+          
+        </tr>
+      
+        <tr>
+          
+            <td>Everolimus (mTOR inhibitor)</td>
+          
+            <td>mTOR pathway protein expression</td>
+          
+            <td>Research RPPA</td>
+          
+            <td>RPPA Pathway analysis (supports)</td>
+          
+        </tr>
+      
+    </table>
     
-    <div class="mqc_mplplot" id="json_0">
-        <div class="element_title">description</div>
-        <iframe src="data/description.json" height="400" width="100%"></iframe>
+  </div>
+          
+          
+        
+          
+            <div class="resources table-type" id="table_1">
+    
+      <h1>genetrails-variants</h1>
+    
+    <table>
+      
+        <th>gene</th>
+      
+        <th>cdna</th>
+      
+        <th>protein</th>
+      
+        <th>classification</th>
+      
+        <th>wes_vaf</th>
+      
+        <th>tcga_frequency</th>
+      
+        <th>rna_vaf</th>
+      
+        <th>expression</th>
+      
+      
+        <tr>
+          
+            <td>FGFR3</td>
+          
+            <td>c.114_127&gt;GA</td>
+          
+            <td>P39_43delinsT</td>
+          
+            <td>ND</td>
+          
+            <td>Not Covered</td>
+          
+            <td>0%</td>
+          
+            <td>ND</td>
+          
+            <td><img src="data/FGFR3_expression_XXX.png" height=75 width=125></img></td>
+          
+        </tr>
+      
+        <tr>
+          
+            <td>NF1</td>
+          
+            <td>c.1391C&gt;T</td>
+          
+            <td>P464L</td>
+          
+            <td>Somatic</td>
+          
+            <td>17%</td>
+          
+            <td>0%</td>
+          
+            <td>15.1%</td>
+          
+            <td><img src="data/NF1_expression_XXX.png" height=75 width=125></img></td>
+          
+        </tr>
+      
+        <tr>
+          
+            <td>ROS1</td>
+          
+            <td>c.5682A&gt;C</td>
+          
+            <td>E1894D</td>
+          
+            <td>ND</td>
+          
+            <td>Not Called</td>
+          
+            <td>0%</td>
+          
+            <td>ND</td>
+          
+            <td><img src="data/ROS1_expression_XXX.png" height=75 width=125></img></td>
+          
+        </tr>
+      
+        <tr>
+          
+            <td>GATA3</td>
+          
+            <td>c.1220_1221insG</td>
+          
+            <td>P409fs</td>
+          
+            <td>Somatic</td>
+          
+            <td>32%</td>
+          
+            <td>.48%</td>
+          
+            <td>3.4%</td>
+          
+            <td><img src="data/GATA3_expression_XXX.png" height=75 width=125></img></td>
+          
+        </tr>
+      
+        <tr>
+          
+            <td>FOXA1</td>
+          
+            <td>c.763_776delGAGAACGGCTGCTA</td>
+          
+            <td>E255fs</td>
+          
+            <td>Somatic</td>
+          
+            <td>14%</td>
+          
+            <td>0%</td>
+          
+            <td>18.1%</td>
+          
+            <td><img src="data/FOXA1_expression_XXX.png" height=75 width=125></img></td>
+          
+        </tr>
+      
+    </table>
+    
+  </div>
+          
+          
+        
+      </section>
+    
+  
+    
+      <section class="resources-section" id="section_5">
+        
+          
+            <div class="resources json-type" id="json_0">
+    
+      <h1>Training Statistics</h1>
+    
+    <iframe src="data/training_statistics.json" height="400" width="100%"></iframe>
+  </div>
+          
+          
+        
+          
+            <div class="resources json-type" id="json_1">
+    
+      <h1>model description</h1>
+    
+    <iframe src="data/description.json" height="400" width="100%"></iframe>
+  </div>
+          
+          
+        
+      </section>
+    
+  
+    
+      <section class="resources-section" id="section_6">
+        
+          
+            <div class="resources text-type" id="text_0">
+    
+      <h1>Text Example</h1>
+    
+    <p>This is an example text.</p>
+  </div>
+          
+          
+        
+      </section>
+    
+  
+    
+      <section class="resources-section" id="section_7">
+        
+          
+          
+            <div class="resources unclassified-type" id="unclassified_0">
+    
+      <h1>model01</h1>
+    
+    <a href="data/model01" >model01</a>
+  </div>
+          
+        
+      </section>
+    
+  
+    
+      <section class="resources-section" id="section_8">
+        
+          
+            <div class="resources image-type" id="image_2">
+    
+      <h1>genetrails_cancernetwork_pathway</h1>
+    
+    <img src="data/genetrails_cancernetwork_pathway.png" height="400" />
+  </div>
+          
+          
+        
+          
+            <div class="resources html-type" id="html_2">
+    
+      <h1>ml_vis04</h1>
+    
+    <div>
+      <iframe src="data/ml_vis04.html" height="400px" ></iframe>
     </div>
+  </div>
+          
+          
+        
+      </section>
     
-    <div class="mqc_mplplot" id="json_1">
-        <div class="element_title">training_statistics</div>
-        <iframe src="data/training_statistics.json" height="400" width="100%"></iframe>
-    </div>
+  
     
-</div>
+  
+
 
 
   </div>
   <footer>
-    <p>Report generated on 2022-09-28 16:47.</p>
+    <p>Report generated on 2022-10-05 09:50.</p>
   </footer>
 </body>
 </html>
