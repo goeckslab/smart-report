@@ -1,10 +1,7 @@
 {% extends "base.html" %}
-{% from "raw_html.html" import render_html %}
-{% from "image.html" import render_image %}
-{% from "json.html" import render_json %}
-{% from "table.html" import render_table %}
-{% from "text.html" import render_text %}
-{% from "unclassified.html" import render_unclassified %}
+{% import "macros.html" as render_macros %}
+
+
 
 
 {% block nav_sidebar %}
@@ -20,20 +17,8 @@
     {% if key not in ("title", "report_time") %}
       <section class="resources-section" id="{{"section_"~loop.index}}">
         {% for item in section %}
-          {% if item.type == "html" %}
-            {{ render_html(item) }}
-          {% elif item.type == "image" %}
-            {{ render_image(item) }}
-          {% elif item.type == "json" %}
-            {{ render_json(item) }}
-          {% elif item.type == "table" %}
-            {{ render_table(item) }}
-          {% elif item.type == "text" %}
-            {{ render_text(item) }}
-          {% endif %}
-          {% if item.type == "unclassified" %}
-            {{ render_unclassified(item) }}
-          {% endif %}
+          {% set macro_name = "render_" + item.type %}
+          {{ render_macros[macro_name](item) }}
         {% endfor %}
       </section>
     {% endif%}
