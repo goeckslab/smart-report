@@ -159,38 +159,26 @@ def main():
                 id_counter[itype] += 1
     else:
         inputs = defaultdict(list)
+        suffix_to_resources = {
+            cls.suffix: cls for cls in resources_registry.values() if cls.suffix}
+        suffix_to_sections = {
+            ".png": "All Images",
+            ".html": "Interactive Plots",
+            ".txt": "Plain Texts",
+            ".csv": "Pretty Tables",
+            ".json": "Raw JSONs",
+        }
         for fl in sorted(os.listdir(DATA), key=lambda e: e.lower()):
             element =  {"src": DATA + "/" + fl}
-            if fl.endswith(".png"):
-                inputs["All Images"].append({
-                    "id": Image.type + "_" + str(len(inputs["All Images"])),
-                    "type": Image.type,
-                    **Image(**element).render()
-                })
-            elif fl.endswith(".json"):
-                inputs["Raw JSONS"].append({
-                    "id": JSON.type + "_" + str(len(inputs["Raw JSONS"])),
-                    "type": JSON.type,
-                    **JSON(**element).render(),
-                })
-            elif fl.endswith(".html"):
-                inputs["Interactive Plots"].append({
-                    "id": HTML.type + "_" + str(len(inputs["Interactive Plots"])),
-                    "type": HTML.type,
-                    **HTML(**element).render(),
-                })
-            elif fl.endswith(".csv"):
-                inputs["Pretty Tables"].append({
-                    "id": HTML.type + "_" + str(len(inputs["Pretty Tables"])),
-                    "type": Table.type,
-                    **Table(**element).render(),
-                })
-            elif fl.endswith(".txt"):
-                inputs["Plain Texts"].append({
-                    "id": Text.type + "_" + str(len(inputs["Plain Texts"])),
-                    "type": Text.type,
-                    **Text(**element).render(),
-                })
+            for suffix, cls in suffix_to_resources.items():
+                if fl.endswith(suffix):
+                    section = suffix_to_sections[suffix]
+                    inputs[section].append({
+                        "id": cls.type + "_" + str(len(inputs[section])),
+                        "type": cls.type,
+                        **cls(**element).render(),
+                    })
+                    break
             else:
                 inputs["Miscellaneous"].append({
                     "id": Unclassified.type + "_" +str(len(inputs["Miscellaneous"])),
