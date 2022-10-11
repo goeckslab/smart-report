@@ -2,6 +2,7 @@
 Supported data types are:
 PNG, JSON, HTML, Others as binary.
 """
+import argparse
 import csv
 import pathlib
 import os
@@ -140,10 +141,15 @@ class Unclassified(Image):
     suffix = ""
 
 
-def main():
-    if REPORT_INPUTS.exists():
-        with open(REPORT_INPUTS, "r") as fh:
-            inputs = yaml.safe_load(fh)
+def load_yaml(yaml_fp):
+    with open(yaml_fp, "r") as f:
+        return yaml.safe_load(f)
+
+
+def main(inputs: dict = None):
+    if inputs or REPORT_INPUTS.exists():
+        if not inputs:
+            inputs = load_yaml(REPORT_INPUTS)
 
         id_counter = defaultdict(int)
         for key, section in inputs.items():
@@ -201,4 +207,9 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    aparser = argparse.ArgumentParser()
+    aparser.add_argument("-s", "--inputs_str", dest="inputs", type=yaml.safe_load)
+    aparser.add_argument("-i", "--inputs", dest="inputs", type=load_yaml)
+    args = aparser.parse_args()
+
+    main(args.inputs)
