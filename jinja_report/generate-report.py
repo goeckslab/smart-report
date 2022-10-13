@@ -204,6 +204,7 @@ def main(inputs: dict = None):
     out = main_tpl.render(inputs=dict(inputs))
 
     print(out)
+    return out
 
 
 if __name__ == "__main__":
