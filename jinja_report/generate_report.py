@@ -15,9 +15,9 @@ import yaml
 
 
 REPORT_INPUTS = pathlib.Path("report_input.yml")
-DATA = "data"
-TEMPLATE = "templates"
-STATIC = "static"
+DATA = os.path.join(os.path.dirname(__file__), "data")
+TEMPLATE = os.path.join(os.path.dirname(__file__), "templates")
+STATIC = os.path.join(os.path.dirname(__file__), "static")
 
 env = jinja2.Environment(
     loader=jinja2.FileSystemLoader([TEMPLATE, STATIC]),
