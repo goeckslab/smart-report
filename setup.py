@@ -15,7 +15,7 @@ This tool generate an HTML summary report from various file sources, like image,
 
 """
 
-setup(name='model-unpickler',
+setup(name='smart-report',
       version=VERSION,
       description='A tool to generate HTML report from file sources.',
       long_description=long_description,
