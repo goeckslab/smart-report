@@ -1,5 +1,5 @@
 from os.path import realpath, dirname, join
-from setuptools import find_packages
+from setuptools import find_namespace_packages
 from distutils.core import setup
 
 
@@ -21,7 +21,7 @@ setup(name='smart-report',
       long_description=long_description,
       long_description_content_type="text/markdown",
       url='https://github.com/goeckslab/smart-report/',
-      packages=find_packages(exclude=['react_report', 'data*']),
+      packages=find_namespace_packages(include=['jinja_report'], exclude=['data*']),
       package_data={
           '': ['README.md']},
       include_package_data=True,
