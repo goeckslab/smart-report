@@ -23,7 +23,7 @@ setup(name='smart-report',
       url='https://github.com/goeckslab/smart-report/',
       packages=find_packages(exclude=['react_report', 'data*']),
       package_data={
-          '': ['README.md', 'jinja_report/requirements.txt']},
+          '': ['README.md']},
       include_package_data=True,
       install_requires=install_reqs,
       platforms='any',
