@@ -1,3 +1,5 @@
 include LICENSE
 include README.md
-include jinja_report/*
+include jinja_report/static/*
+include jinja_report/templates/*
+include jinja_report/report_input.yml
