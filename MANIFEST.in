@@ -4,3 +4,4 @@ include jinja_report/static/*
 include jinja_report/templates/*
 include jinja_report/requirements.txt
 include jinja_report/report_input.yml
+include jinja_report/schema.yml
