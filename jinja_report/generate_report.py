@@ -152,8 +152,8 @@ def main(
     inputs: dict = None,
     schema: dict = None,
 ) -> str:
-    if not schema:
-        schema = load_yaml(SCHEMA)
+    default_schema = load_yaml(SCHEMA)
+    schema = {**default_schema, **schema}
     if inputs or REPORT_INPUTS.exists():
         if not inputs:
             inputs = load_yaml(REPORT_INPUTS)
