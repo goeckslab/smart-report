@@ -3,7 +3,7 @@ from setuptools import find_namespace_packages
 from distutils.core import setup
 
 
-VERSION = '0.1.dev0'
+VERSION = '0.1.dev1'
 PROJECT_ROOT = dirname(realpath(__file__))
 
 with open(join(PROJECT_ROOT, 'jinja_report', 'requirements.txt'), 'r', encoding="utf-8") as f:
