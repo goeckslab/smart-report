@@ -18,6 +18,8 @@ REPORT_INPUTS = pathlib.Path("report_input.yml")
 DATA = os.path.join(os.path.dirname(__file__), "data")
 TEMPLATE = os.path.join(os.path.dirname(__file__), "templates")
 STATIC = os.path.join(os.path.dirname(__file__), "static")
+SCHEMA = os.path.join(os.path.dirname(__file__), "schema.yml")
+
 
 env = jinja2.Environment(
     loader=jinja2.FileSystemLoader([TEMPLATE, STATIC]),
@@ -146,7 +148,12 @@ def load_yaml(yaml_fp):
         return yaml.safe_load(f)
 
 
-def main(inputs: dict = None):
+def main(
+    inputs: dict = None,
+    schema: dict = None,
+) -> str:
+    if not schema:
+        schema = load_yaml(SCHEMA)
     if inputs or REPORT_INPUTS.exists():
         if not inputs:
             inputs = load_yaml(REPORT_INPUTS)
@@ -197,11 +204,8 @@ def main(inputs: dict = None):
 
     inputs["report_time"] = datetime.now()
 
-    # print(dict(inputs))
-
     main_tpl = env.get_template("main.html")
-
-    out = main_tpl.render(inputs=dict(inputs))
+    out = main_tpl.render(inputs=dict(inputs), schema=schema)
 
     print(out)
     return out
@@ -209,8 +213,10 @@ def main(inputs: dict = None):
 
 if __name__ == "__main__":
     aparser = argparse.ArgumentParser()
-    aparser.add_argument("-s", "--inputs_str", dest="inputs", type=yaml.safe_load)
+    aparser.add_argument("-is", "--inputs_str", dest="inputs", type=yaml.safe_load)
     aparser.add_argument("-i", "--inputs", dest="inputs", type=load_yaml)
+    aparser.add_argument("-ss", "--schema_str", dest="schema", type=yaml.safe_load)
+    aparser.add_argument("-s", "--schema", dest="schema", type=load_yaml)
     args = aparser.parse_args()
 
-    main(args.inputs)
+    main(**vars(args))

@@ -162,7 +162,7 @@ footer {
 }
 
 .resources iframe {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 2 / 1;
     max-width: 100%;
     margin: 0 auto;
     display: block;

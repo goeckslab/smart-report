@@ -18,7 +18,7 @@
       <section class="resources-section" id="{{"section_"~loop.index}}">
         {% for item in section %}
           {% set macro_name = "render_" + item.type %}
-          {{ render_macros[macro_name](item) }}
+          {{ render_macros[macro_name](item, schema) }}
         {% endfor %}
       </section>
     {% endif%}

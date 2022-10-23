@@ -1,36 +1,36 @@
-{% macro render_html(config) -%}
+{% macro render_html(config, schema) -%}
   <div class="resources html-type" id="{{ config["id"] }}">
     {% if config["title"] %}
       <h1>{{ config["title"] }}</h1>
     {% endif %}
     <div>
-      <iframe src="{{ config["src"] }}" height="400px" ></iframe>
+      <iframe src="{{ config["src"] }}" height="{{ schema.html_height }}" ></iframe>
     </div>
   </div>
 {%- endmacro %}
 
 
-{% macro render_image(config) -%}
+{% macro render_image(config, schema) -%}
   <div class="resources image-type" id="{{ config["id"] }}">
     {% if config["title"] %}
       <h1>{{ config["title"] }}</h1>
     {% endif %}
-    <img src="{{ config["src"] }}" height="400" />
+    <img src="{{ config["src"] }}" height="{{ schema.image_height }}" />
   </div>
 {%- endmacro %}
 
 
-{% macro render_json(config) -%}
+{% macro render_json(config, schema) -%}
   <div class="resources json-type" id="{{ config["id"] }}">
     {% if config["title"] %}
       <h1>{{ config["title"] }}</h1>
     {% endif %}
-    <iframe src="{{ config["src"] }}" height="400" width="100%"></iframe>
+    <iframe src="{{ config["src"] }}" height="{{ schema.json_height }}" width="100%"></iframe>
   </div>
 {%- endmacro %}
 
 
-{% macro render_table(config) -%}
+{% macro render_table(config, schema) -%}
   <div class="resources table-type" id="{{ config["id"] }}">
     {% if config["title"] %}
       <h1>{{ config["title"] }}</h1>
@@ -54,7 +54,7 @@
 {%- endmacro %}
 
 
-{% macro render_text(config) -%}
+{% macro render_text(config, schema) -%}
   <div class="resources text-type" id="{{ config["id"] }}">
     {% if config["title"] %}
       <h1>{{ config["title"] }}</h1>
@@ -64,7 +64,7 @@
 {%- endmacro %}
 
 
-{% macro render_unclassified(config) -%}
+{% macro render_unclassified(config, schema) -%}
   <div class="resources unclassified-type" id="{{ config["id"] }}">
     {% if config["title"] %}
       <h1>{{ config["title"] }}</h1>
