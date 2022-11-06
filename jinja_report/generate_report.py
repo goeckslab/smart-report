@@ -9,6 +9,7 @@ import os
 
 from collections import defaultdict
 from datetime import datetime
+from typing import Optional
 
 import jinja2
 import yaml
@@ -149,10 +150,12 @@ def load_yaml(yaml_fp):
 
 
 def main(
-    inputs: dict = None,
-    schema: dict = None,
+    inputs: Optional[dict] = None,
+    schema: Optional[dict] = None,
+    outfile: Optional[pathlib.Path] = None,
 ) -> str:
     default_schema = load_yaml(SCHEMA)
+    schema = schema if schema else {}
     schema = {**default_schema, **schema}
     if inputs or REPORT_INPUTS.exists():
         if not inputs:
@@ -207,7 +210,12 @@ def main(
     main_tpl = env.get_template("main.html")
     out = main_tpl.render(inputs=dict(inputs), schema=schema)
 
-    print(out)
+    if not outfile:
+        print(out)
+    else:
+        with open(outfile, "w") as fp:
+            fp.write(out)
+
     return out
 
 
@@ -217,6 +225,7 @@ if __name__ == "__main__":
     aparser.add_argument("-i", "--inputs", dest="inputs", type=load_yaml)
     aparser.add_argument("-ss", "--schema_str", dest="schema", type=yaml.safe_load)
     aparser.add_argument("-s", "--schema", dest="schema", type=load_yaml)
+    aparser.add_argument("-o", "--outfile", dest="outfile", type=pathlib.Path)
     args = aparser.parse_args()
 
     main(**vars(args))
